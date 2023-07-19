@@ -39,6 +39,7 @@
       - [reference here](#reference-here)
 - [vscode 配置](#vscode-配置)
   - [prettier--代码格式化工具，](#prettier--代码格式化工具)
+- [playground登录迷思](#playground登录迷思)
 
 # 任务1.学习Apex,Trigger,以及对象字段的简单使用
 ##  Trigger
@@ -336,3 +337,7 @@ MyPageController controller = new MyPageController();
 ## prettier--代码格式化工具，
 - 相关配置参考：https://salesforce.stackexchange.com/questions/320884/use-prettier-in-vs-code-to-format-visualforce
 - VF配置：https://github.com/forcedotcom/salesforcedx-vscode/issues/3383
+# playground登录迷思
+vscode认证时如何找到用户名：https://trailhead.salesforce.com/help?article=Find-the-username-and-password-for-your-Trailhead-Playground
+![Alt text](image.png)
+![Alt text](1689759106240.png)
