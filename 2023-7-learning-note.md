@@ -27,6 +27,7 @@
       - [Batch 分哪几个模块？分别实现什么功能？](#batch-分哪几个模块分别实现什么功能)
       - [Database.query() 最多只能查询 50000 条数据，如果我要处理的数据超出 50000 条怎么办？](#databasequery-最多只能查询-50000-条数据如果我要处理的数据超出-50000-条怎么办)
 - [任务5.学会日志打印,根据日志排查与问题](#任务5学会日志打印根据日志排查与问题)
+  - [reference](#reference)
   - [日志](#日志)
     - [打印日志](#打印日志)
     - [查看日志：](#查看日志)
@@ -36,6 +37,8 @@
     - [测试 Visualforce Controllers](#测试-visualforce-controllers)
     - [测试 Private 变量和方法](#测试-private-变量和方法)
       - [reference here](#reference-here)
+- [vscode 配置](#vscode-配置)
+  - [prettier--代码格式化工具，](#prettier--代码格式化工具)
 
 # 任务1.学习Apex,Trigger,以及对象字段的简单使用
 ##  Trigger
@@ -65,6 +68,7 @@
 - 限制对大型 List 的操作，避免在循环中执行消耗大量内存的操作。
   
 # 任务2.学习Visualforce 页面的开发,能够做出与后台交互的Visualforce页面
+
 ## visualforce生成PDF
 - reference：https://www.cnblogs.com/luqinghua/p/9326665.html
 ### 踩坑记录
@@ -111,22 +115,22 @@ Note: If a pageBlock header facet is defined, the facet overrides the buttons th
 # 任务3.学习Salesforce内的一些配置功能,如Flow、验证规则、重复&匹配规则、审批流的配置等
 ## 三种常规类型的流(Flow)
 | Flow Type         | Launched By                     | Description                                                                                                            |
-|-------------------|---------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| ----------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
 | Screen Flow       | Quick action                    | Screen Flows provide a UI that guides users through a business process\.                                               |
-|                   | Lightning page                  | 屏幕流提供指导用户完成业务流程的 UI。                                                                                                   |
+|                   | Lightning page                  | 屏幕流提供指导用户完成业务流程的 UI。                                                                                  |
 |                   | Experience Cloud site, and more |                                                                                                                        |
 |                   |                                 |                                                                                                                        |
 | Autolaunched Flow | Another flow                    | Autolaunched Flows automate business processes that have no UI\. They have no trigger and they run in the background\. |
-|                   | Apex code                       | 自动启动的流程可自动执行没有 UI 的业务流程。它们没有触发器，在后台运行。                                                                                 |
+|                   | Apex code                       | 自动启动的流程可自动执行没有 UI 的业务流程。它们没有触发器，在后台运行。                                               |
 |                   | REST API                        |                                                                                                                        |
 |                   |                                 |                                                                                                                        |
 | Triggered Flow    | Time                            | Triggered Flows are autolaunched by a trigger you specify\. They run in the background\.                               |
-|                   | Data change                     | 触发的流由您指定的触发器自动启动。它们在后台运行。                                                                                              |
+|                   | Data change                     | 触发的流由您指定的触发器自动启动。它们在后台运行。                                                                     |
 |                   | Platform event                  |
 
 ## 三种类型的触发器(Trigger)
 | Trigger Type   | When It Runs                                         | How To Use It                              |
-|----------------|------------------------------------------------------|--------------------------------------------|
+| -------------- | ---------------------------------------------------- | ------------------------------------------ |
 | Schedule       | At A Time And Frequency You Specify                  | Running Nightly Batch Jobs                 |
 | Platform Event | When A Particular Platform Event Message Is Received | Subscribing To Events                      |
 | Record         | When A Record Is Created, Updated, Or Deleted        | Updating Records And Sending Notifications |
@@ -269,6 +273,13 @@ private class Test_FutureSample {
 }
 ```
 # 任务5.学会日志打印,根据日志排查与问题
+## reference 
+- https://trailhead.salesforce.com/content/learn/projects/find-and-fix-bugs-with-apex-replay-debugger/apex-replay-debugger-launch-playground
+- 启用跟踪标志后，Apex 代码将生成调试日志，这些日志是事务中所有交互的记录。Apex 重播调试器使用调试日志模拟实时调试会话。它显示记录的信息，包括变量值、调用堆栈和断点，类似于交互式调试器
+
+> Apex Replay Debugger是一个免费工具，允许您通过使用Visual Studio Code作为客户端检查调试日志来调试Apex代码。运行重播调试器可提供您期望从其他调试器获得的相同功能。您可以查看变量、设置断点以及将鼠标悬停在变量上以查看其当前值。您不再需要手动解析数千个日志行或用语句填充 System.debug 代码来查看变量值或跟踪代码执行路径。
+
+即在console里面查看log转换到vscode调试
 ## 日志
 ### 打印日志
 在代码中使用 System.debug() ：
@@ -318,3 +329,10 @@ MyPageController controller = new MyPageController();
 #### reference here
 - http://blog.meginfo.com.cn/how-to-write-good-apex-test-methods/
 - https://www.cnblogs.com/zero-zyq/p/5474874.html
+
+# vscode 配置
+- Salesforce Core Configuration设置Detect Conflicts At Sync : on,可以在上传前检测冲突，上传需用comment而非鼠标右键操作（可能失效）
+- 国内参考：https://juejin.cn/post/7094879891325190180
+## prettier--代码格式化工具，
+- 相关配置参考：https://salesforce.stackexchange.com/questions/320884/use-prettier-in-vs-code-to-format-visualforce
+- VF配置：https://github.com/forcedotcom/salesforcedx-vscode/issues/3383
