@@ -10,6 +10,7 @@
     - [代码](#代码)
   - [官网解释：](#官网解释)
 - [任务3.学习Salesforce内的一些配置功能,如Flow、验证规则、重复\&匹配规则、审批流的配置等](#任务3学习salesforce内的一些配置功能如flow验证规则重复匹配规则审批流的配置等)
+  - [踩坑](#踩坑)
   - [三种常规类型的流(Flow)](#三种常规类型的流flow)
   - [三种类型的触发器(Trigger)](#三种类型的触发器trigger)
   - [验证规则（Validation Rules）](#验证规则validation-rules)
@@ -28,6 +29,8 @@
       - [Database.query() 最多只能查询 50000 条数据，如果我要处理的数据超出 50000 条怎么办？](#databasequery-最多只能查询-50000-条数据如果我要处理的数据超出-50000-条怎么办)
 - [任务5.学会日志打印,根据日志排查与问题](#任务5学会日志打印根据日志排查与问题)
   - [reference](#reference)
+  - [在vscode显示dubug only](#在vscode显示dubug-only)
+  - [在vscode中匿名类执行](#在vscode中匿名类执行)
   - [日志](#日志)
     - [打印日志](#打印日志)
     - [查看日志：](#查看日志)
@@ -114,6 +117,13 @@ Note: If a pageBlock header facet is defined, the facet overrides the buttons th
 注： 如果定义了页面块标题分面，则该分面将覆盖通常显示在页面块顶部的按钮。同样，如果定义了 pageBlock 页脚分面，则该分面将覆盖通常显示在页块底部的按钮。
 
 # 任务3.学习Salesforce内的一些配置功能,如Flow、验证规则、重复&匹配规则、审批流的配置等
+- 验证规则:https://trailhead.salesforce.com/zh-CN/content/learn/modules/point_click_business_logic/validation_rules
+
+- 重复&匹配规则:https://trailhead.salesforce.com/content/learn/modules/sales_admin_duplicate_management
+- 审批流:https://trailhead.salesforce.com/content/learn/modules/business_process_automation
+
+## 踩坑
+- Owner:User.Username的Username是类似于邮箱格式的name而不是full name
 ## 三种常规类型的流(Flow)
 | Flow Type         | Launched By                     | Description                                                                                                            |
 | ----------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -279,6 +289,11 @@ private class Test_FutureSample {
 - 启用跟踪标志后，Apex 代码将生成调试日志，这些日志是事务中所有交互的记录。Apex 重播调试器使用调试日志模拟实时调试会话。它显示记录的信息，包括变量值、调用堆栈和断点，类似于交互式调试器
 
 > Apex Replay Debugger是一个免费工具，允许您通过使用Visual Studio Code作为客户端检查调试日志来调试Apex代码。运行重播调试器可提供您期望从其他调试器获得的相同功能。您可以查看变量、设置断点以及将鼠标悬停在变量上以查看其当前值。您不再需要手动解析数千个日志行或用语句填充 System.debug 代码来查看变量值或跟踪代码执行路径。
+## 在vscode显示dubug only
+> https://thomas-prouvot.medium.com/salesforce-debug-with-vs-code-2604c8a71ce
+
+## 在vscode中匿名类执行
+https://developer.salesforce.com/tools/vscode/en/apex/writing
 
 即在console里面查看log转换到vscode调试
 ## 日志
@@ -318,6 +333,9 @@ System.assertNotEquals();
 - 使用 Test.setCurrentPage() 分配一个模拟的 VF page 去测试 controller 中的 - ApexPages.CurrentPage()。
 - 设置 HTTP 的参数，让 controller 可以获取到 URL 中的参数。
 - 验证页面的跳转结果
+  
+
+
 ```java
 PageReference myPage = Page.MyPage;  
 myPage.getParameters().put('id', acc.Id);  
@@ -339,5 +357,7 @@ MyPageController controller = new MyPageController();
 - VF配置：https://github.com/forcedotcom/salesforcedx-vscode/issues/3383
 # playground登录迷思
 vscode认证时如何找到用户名：https://trailhead.salesforce.com/help?article=Find-the-username-and-password-for-your-Trailhead-Playground
+
+貌似每个pg都要reset pd，贼麻烦
 ![Alt text](image.png)
 ![Alt text](1689759106240.png)
