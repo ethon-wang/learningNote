@@ -1,4 +1,6 @@
 - [任务1.学习Apex,Trigger,以及对象字段的简单使用](#任务1学习apextrigger以及对象字段的简单使用)
+  - [文件上传](#文件上传)
+  - [SOQL](#soql)
   - [Trigger](#trigger)
   - [学习Apex](#学习apex)
     - [List](#list)
@@ -45,6 +47,12 @@
 - [playground登录迷思](#playground登录迷思)
 
 # 任务1.学习Apex,Trigger,以及对象字段的简单使用
+## 文件上传
+传的时候注意Blob对象如果绑定前台的inputFile情况下，要注意使用transient声明或者insert以后将值置成空
+- https://www.cnblogs.com/zero-zyq/p/5752978.html
+## SOQL
+- 使用SOQL for loop处理返回多条记录的查询结果来避免堆大小的限制缺点是耗时长（包括cpu用时更高），遇到瓶颈可考虑采用异步加载
+- 先查询再处理则采用空间换时间，高效率之下也占用高内存
 ##  Trigger
  > 可以在事件发生之前或之后对Salesforce中的记录（例如插入，更新或删除）执行自定义操作。就像数据库系统支持触发器一样，Apex也提供触发器支持来管理记录。
 
